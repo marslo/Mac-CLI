@@ -8,7 +8,9 @@ LIGHTBLUE='\033[01;34m'
 NC='\033[0m' # No Color
 
 # In directory
-PACKAGE_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PACKAGE_DIRECTORY="$( pwd )"
+# PACKAGE_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+echo ${PACKAGE_DIRECTORY}
 suggest_current(){
     case "$1" in
         "mysql.sock")
@@ -33,53 +35,54 @@ main() {
     echo " Mac CLI Installer"
     echo "================================================${NC}\n"
 
-    git clone https://github.com/guarinogabriel/mac-cli.git --depth 1 && cd mac-cli
-    
-    echo "${LIGHTGREEN}Please enter path to mysql on your local machine:"
-    echo "${NC}Press enter without any value to keep default: /Applications/MAMP/Library/bin/mysql"
-    suggest_current mysql
-    read mysql_path
-    if [ ! -z "$mysql_path" -a "$mysql_path" != " " ]; then
-        LC_CTYPE=C sed -i'' -e "s#/Applications/MAMP/Library/bin/mysql#${mysql_path}#g" "$PACKAGE_DIRECTORY/mac-cli/mac"
-    fi
+    cd mac-cli
+    # git clone https://github.com/guarinogabriel/mac-cli.git --depth 1 && cd mac-cli
 
-    echo "${LIGHTGREEN}Please enter your mysql user:"
-    echo "${NC}Press enter without any value to keep default: root"
-    read mysql_user
-    if [ ! -z "$mysql_user" -a "$mysql_user" != " " ]; then
-        LC_CTYPE=C sed -i'' -e "s#mysql_user=\"root\"#mysql_user=\"${mysql_user}\"#g" "$PACKAGE_DIRECTORY/mac-cli/mac"
-    fi
+    # echo "${LIGHTGREEN}Please enter path to mysql on your local machine:"
+    # echo "${NC}Press enter without any value to keep default: /Applications/MAMP/Library/bin/mysql"
+    # suggest_current mysql
+    # read mysql_path
+    # if [ ! -z "$mysql_path" -a "$mysql_path" != " " ]; then
+        # LC_CTYPE=C sed -i'' -e "s#/Applications/MAMP/Library/bin/mysql#${mysql_path}#g" "$PACKAGE_DIRECTORY/mac-cli/mac"
+    # fi
 
-    echo "${LIGHTGREEN}Please enter your mysql password:"
-    echo "${NC}Press enter without any value to keep default: root"
-    echo "${NC}Type none if no password is used"
-    read mysql_password
-    if [ ! -z "$mysql_password" -a "$mysql_password" != " " ]; then
-        LC_CTYPE=C sed -i'' -e "s#mysql_password=\"root\"#mysql_password=\"${mysql_password}\"#g" "$PACKAGE_DIRECTORY/mac-cli/mac"
-    fi
+    # echo "${LIGHTGREEN}Please enter your mysql user:"
+    # echo "${NC}Press enter without any value to keep default: root"
+    # read mysql_user
+    # if [ ! -z "$mysql_user" -a "$mysql_user" != " " ]; then
+        # LC_CTYPE=C sed -i'' -e "s#mysql_user=\"root\"#mysql_user=\"${mysql_user}\"#g" "$PACKAGE_DIRECTORY/mac-cli/mac"
+    # fi
 
-    echo "${LIGHTGREEN}Please enter path to the mysql socket on your local machine:"
-    echo "${NC}Press enter without any value to keep default: /Applications/MAMP/tmp/mysql/mysql.sock"
-    suggest_current mysql.sock
-    read mysql_socket
-    if [ ! -z "$mysql_socket" -a "$mysql_socket" != " " ]; then
-        LC_CTYPE=C sed -i'' -e "s#/Applications/MAMP/tmp/mysql/mysql.sock#${mysql_socket}#g" "$PACKAGE_DIRECTORY/mac-cli/mac"
-    fi
+    # echo "${LIGHTGREEN}Please enter your mysql password:"
+    # echo "${NC}Press enter without any value to keep default: root"
+    # echo "${NC}Type none if no password is used"
+    # read mysql_password
+    # if [ ! -z "$mysql_password" -a "$mysql_password" != " " ]; then
+        # LC_CTYPE=C sed -i'' -e "s#mysql_password=\"root\"#mysql_password=\"${mysql_password}\"#g" "$PACKAGE_DIRECTORY/mac-cli/mac"
+    # fi
 
-    echo "${LIGHTGREEN}Please enter path to mysqldump on your local machine:"
-    echo "${NC}Press enter without any value to keep default: /Applications/MAMP/Library/bin/mysqldump"
-    suggest_current mysqldump
-    read mysql_dump
-    if [ ! -z "$mysql_dump" -a "$mysql_dump" != " " ]; then
-        LC_CTYPE=C sed -i'' -e "s#/Applications/MAMP/Library/bin/mysqldump#${mysql_dump}#g" "$PACKAGE_DIRECTORY/mac-cli/mac"
-    fi
+    # echo "${LIGHTGREEN}Please enter path to the mysql socket on your local machine:"
+    # echo "${NC}Press enter without any value to keep default: /Applications/MAMP/tmp/mysql/mysql.sock"
+    # suggest_current mysql.sock
+    # read mysql_socket
+    # if [ ! -z "$mysql_socket" -a "$mysql_socket" != " " ]; then
+        # LC_CTYPE=C sed -i'' -e "s#/Applications/MAMP/tmp/mysql/mysql.sock#${mysql_socket}#g" "$PACKAGE_DIRECTORY/mac-cli/mac"
+    # fi
 
-    echo "${LIGHTGREEN}Please enter path to your Dropbox folder:"
-    echo "${NC}Press enter without any value to keep default: /Users/$(id -u -n)/Dropbox/"
-    read dropbox_path
-    if [ ! -z "$dropbox_path" -a "$dropbox_path" != " " ]; then
-        LC_CTYPE=C sed -i'' -e "s#/Users/\$(id -u -n)/Dropbox/#${dropbox_path}#g" "$PACKAGE_DIRECTORY/mac-cli/mac"
-    fi
+    # echo "${LIGHTGREEN}Please enter path to mysqldump on your local machine:"
+    # echo "${NC}Press enter without any value to keep default: /Applications/MAMP/Library/bin/mysqldump"
+    # suggest_current mysqldump
+    # read mysql_dump
+    # if [ ! -z "$mysql_dump" -a "$mysql_dump" != " " ]; then
+        # LC_CTYPE=C sed -i'' -e "s#/Applications/MAMP/Library/bin/mysqldump#${mysql_dump}#g" "$PACKAGE_DIRECTORY/mac-cli/mac"
+    # fi
+
+    # echo "${LIGHTGREEN}Please enter path to your Dropbox folder:"
+    # echo "${NC}Press enter without any value to keep default: /Users/$(id -u -n)/Dropbox/"
+    # read dropbox_path
+    # if [ ! -z "$dropbox_path" -a "$dropbox_path" != " " ]; then
+        # LC_CTYPE=C sed -i'' -e "s#/Users/\$(id -u -n)/Dropbox/#${dropbox_path}#g" "$PACKAGE_DIRECTORY/mac-cli/mac"
+    # fi
 
     printf "${LIGHTGREEN}"
     read -r -p "Would you like Mac CLI to show you the commands that are run on each mac command? (Yes / No)" response
@@ -139,7 +142,8 @@ main() {
         brew install node
 	fi
 
-    if [ ! -f /usr/local/bin/python ]; then
+    # if [ ! -f /usr/local/bin/python ]; then
+    if [ ! -f /usr/local/opt/python/libexec/bin/python ]; then
         echo "Installing Python..."
         echo "${GREEN}brew install python\n${NC}"
         brew install python
@@ -179,7 +183,7 @@ main() {
           [yY][eE][sS]|[yY])
             echo "Installing Compass..."
             echo "${GREEN}sudo gem install -n /usr/local/bin compass\n${NC}"
-            sudo gem install -n /usr/local/bin compass
+            sudo /usr/local/opt/ruby/bin/gem install -n /usr/local/bin compass
           ;;
           *)
           ;;
@@ -194,7 +198,7 @@ main() {
           [yY][eE][sS]|[yY])
             echo "Installing SCSS..."
             echo "${GREEN}gem install sass\n${NC}"
-            gem install sass
+            /usr/local/opt/ruby/bin/gem install sass
           ;;
           *)
           ;;
@@ -224,7 +228,7 @@ main() {
             [yY][eE][sS]|[yY])
                 echo "Installing Glances (https://github.com/nicolargo/glances)..."
                 echo "${GREEN}pip install glances\n${NC}"
-                pip install glances
+                pip install --user glances
                 ;;
             *)
                 ;;
@@ -238,8 +242,8 @@ main() {
         case $response in
             [yY][eE][sS]|[yY])
                 echo "Installing Fast CLI (https://github.com/sindresorhus/fast-cli)..."
-                echo "${GREEN}npm install --global fast-cli\n${NC}"
-                npm install --global fast-cli
+                echo "${GREEN}sudo npm install --global fast-cli\n${NC}"
+                sudo npm install --global fast-cli
                 ;;
             *)
                 ;;
@@ -311,7 +315,7 @@ main() {
             [yY][eE][sS]|[yY])
                 echo "Installing iStats..."
                 echo "${GREEN}sudo gem install iStats -n/usr/local/bin\n\n${NC}"
-                sudo gem install iStats -n/usr/local/bin
+                sudo /usr/local/opt/ruby/bin/gem install iStats -n /usr/local/bin
                 ;;
             *)
                 ;;
@@ -319,28 +323,28 @@ main() {
         printf "${NC}"
     fi
 
-    if ! brew list | grep -q bash-completion ; then
+    # if ! brew list | grep -q bash-completion ; then
 
-            echo "Installing bash-completion\n"
-            echo "${GREEN}brew install bash-completion\n\n${NC}"
-            brew install bash-completion
-            echo 'if [ -f $(brew --prefix)/etc/bash_completion ]; then source $(brew --prefix)/etc/bash_completion; fi' >> ~/.bashrc
-            echo "Setting up Mac-CLI bash-completion\n"
+            # echo "Installing bash-completion\n"
+            # echo "${GREEN}brew install bash-completion\n\n${NC}"
+            # brew install bash-completion
+            # echo 'if [ -f $(brew --prefix)/etc/bash_completion ]; then source $(brew --prefix)/etc/bash_completion; fi' >> ~/.bashrc
+            # echo "Setting up Mac-CLI bash-completion\n"
 
-        if [ -d /usr/local/etc/bash_completion.d/ ]; then
-            cp /usr/local/bin/mac-cli/completion/bash_completion /usr/local/etc/bash_completion.d/mac
-        fi
+        # if [ -d /usr/local/etc/bash_completion.d/ ]; then
+            # cp /usr/local/bin/mac-cli/completion/bash_completion /usr/local/etc/bash_completion.d/mac
+        # fi
 
-    else
+    # else
 
-        echo "Setting up Mac-CLI bash-completion\n"
+        # echo "Setting up Mac-CLI bash-completion\n"
 
-        if [ -d $(brew --prefix)/etc/bash_completion.d/ ]; then
-            cp /usr/local/bin/mac-cli/completion/bash_completion $(brew --prefix)/etc/bash_completion.d/mac
-            echo 'if [ -f $(brew --prefix)/etc/bash_completion ]; then source $(brew --prefix)/etc/bash_completion; fi' >> ~/.bashrc
-        fi
+        # if [ -d $(brew --prefix)/etc/bash_completion.d/ ]; then
+            # cp /usr/local/bin/mac-cli/completion/bash_completion $(brew --prefix)/etc/bash_completion.d/mac
+            # echo 'if [ -f $(brew --prefix)/etc/bash_completion ]; then source $(brew --prefix)/etc/bash_completion; fi' >> ~/.bashrc
+        # fi
 
-    fi
+    # fi
 
     #
     # Check if fish shell is installed and prompt user to copy fish_completion

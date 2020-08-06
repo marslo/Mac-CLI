@@ -97,6 +97,26 @@ function usageList()
             echo "${LIGHTBLUE}mac dns:clear${GRAY}: Clear DNS Cache "
             echo "${NC}\n"
             ;;
+        lamp)
+            echo "\n${WHITEBOLD}LAMP Utilities: "
+            echo "${LIGHTBLUE}mac mysql${GRAY}: Open MySQL app "
+            echo "${LIGHTBLUE}mac mysql:cli${GRAY}: Start MySQL CLI with autocompletion and syntax higlighting "
+            echo "${LIGHTBLUE}mac mysql:list${GRAY}: List all MySQL databases"
+            echo "${LIGHTBLUE}mac mysql:export-all${GRAY}: Export all MySQL databases to individual files"
+            echo "${LIGHTBLUE}mac mysql:export ${LIGHTGREEN}X${GRAY}: Export MySQL database to current directory - X = database name "
+            echo "${LIGHTBLUE}mac mysql:import ${LIGHTGREEN}X${GRAY}: Import MySQL database - X = SQL file "
+            echo "${LIGHTBLUE}mac mysql:import-table ${LIGHTGREEN}X${GRAY}: Import single MySQL database table -   X = SQL file containing database table "
+            echo "${LIGHTBLUE}mac mysql:create ${LIGHTGREEN}X${GRAY}: Create MySQL database - X = Database name"
+            echo "${LIGHTBLUE}mac mysql:drop ${LIGHTGREEN}X${GRAY}: Remove MySQL database - X = Database name"
+            echo "${LIGHTBLUE}mac mysql:duplicate ${LIGHTGREEN}X${GRAY}: Duplicate MySQL database - X = Database name"
+            echo "${LIGHTBLUE}mac mamp:start${GRAY}: Start MAMP Server (Apache and MySQL)"
+            echo "${LIGHTBLUE}mac mamp:stop${GRAY}: Stop MAMP Server (Apache and MySQL)"
+            echo "${LIGHTBLUE}mac mamp:restart${GRAY}: Restart MAMP Server (Apache and MySQL)"
+            echo "${LIGHTBLUE}mac php:syntax${GRAY}: Check PHP Syntax for all PHP files in current location "
+            echo "${LIGHTBLUE}mac php:info${GRAY}: Get PHP info on command line "
+            echo "${LIGHTBLUE}mac hosts:edit${GRAY}: Edit hosts file "
+            echo "${NC}\n"
+            ;;
         ssh)
             echo "\n${WHITEBOLD}SSH Utilities: "
             echo "${LIGHTBLUE}mac ssh:download-file ${LIGHTGREEN}X${GRAY}: Download file from remote server through SSH - X = Path of the remote file to download "
@@ -106,6 +126,13 @@ function usageList()
             echo "${LIGHTBLUE}mac ssh:sync:remote ${LIGHTGREEN}X${GRAY}: Path of the remote folder to sync from local folder (upload local folder to remote folder) "
             echo "${LIGHTBLUE}mac ssh:upload ${LIGHTGREEN}X${GRAY}: Upload file to remote server through SSH - X = Path of the file to upload to the remote server "
             echo "${LIGHTBLUE}mac ssh:public-key ${LIGHTGREEN}X${GRAY}: Get public SSH key for local machine "
+            echo "${NC}\n"
+            ;;
+        webdev)
+            echo "\n${WHITEBOLD}Web Development Utilities: "
+            echo "${LIGHTBLUE}mac dev:monitor ${LIGHTGREEN}X${GRAY}: Monitor file changes (for example: log file) - X = File to monitor "
+            echo "${LIGHTBLUE}mac dev:optimize-images${GRAY}: Optimize all images in current directory and subdirectories "
+            echo "${LIGHTBLUE}mac dev:css:convert-to-scss${GRAY}: Convert CSS file to SCSS "
             echo "${NC}\n"
             ;;
         performance)
@@ -160,6 +187,19 @@ function usageList()
         image)
             echo "\n${WHITEBOLD}Image Utilities: "
             echo "${LIGHTBLUE}mac image:generate:mobile-app-icons ${LIGHTGREEN}X Y${GRAY}: Generate mobile app icons - X = Path of the original image file, Y= Path of the output file path "
+            echo "${NC}\n"
+            ;;
+        magento)
+            echo "\n${WHITEBOLD}Magento Utilities: "
+            echo "${LIGHTBLUE}mac magento:version${GRAY}: Get Magento version from current project on command line "
+            echo "${LIGHTBLUE}mac magento:customer:create${GRAY}: Create Magento customer with sample address and sample credit card information "
+            echo "${LIGHTBLUE}mac magento:fix-permissions${GRAY}: Fix Magento permissions for files and directories "
+            echo "${LIGHTBLUE}mac magento:order:create${GRAY}: Create sample order in Magento "
+            echo "${LIGHTBLUE}mac magento:shell-script:create${GRAY}: Create script in Magento shell folder to be run from command line "
+            echo "${LIGHTBLUE}mac magento:gitignore:create${GRAY}: Create gitignore file for Magento project "
+            echo "${LIGHTBLUE}mac magento:url-rewrite:enable${GRAY}: Enable Magento URL rewrites "
+            echo "${LIGHTBLUE}mac magento:url-rewrites:disable${GRAY}: Disable Magento URL rewrites "
+            echo "${LIGHTBLUE}mac magento2:install${GRAY}: Install Magento 2 in current directory "
             echo "${NC}\n"
             ;;
     esac
